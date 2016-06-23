@@ -7401,7 +7401,7 @@ code {
   color: #ffff7f !important;
 }
 .navbar-brand {
-  padding: 14px 15px;
+  padding: 14px 0 14px 15px;
   height: 55px;
 }
 .btn-default {
