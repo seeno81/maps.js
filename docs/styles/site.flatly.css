@@ -7125,6 +7125,9 @@ img.branding-logo {
   padding: 0px;
   margin: 0 5px 0 0;
 }
+section img {
+  max-width: 100% !important;
+}
 #toc {
   position: fixed;
   top: 210px;
@@ -7357,11 +7360,13 @@ code {
     color: #fff;
     font-weight: bold;
   }
-  .navbar-collapse {
-    max-height: none !important;
-  }
   .navbar-form {
     margin: 0;
+  }
+  #main td {
+    width: 25%;
+    word-break: break-word;
+    padding: 8px;
   }
 }
 @media (min-width: 768px) {
