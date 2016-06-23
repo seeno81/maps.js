@@ -46,7 +46,12 @@ p {
 #wrap > a.back {
     display: none;
 }
-
+#wrap2 > h2 {
+    display: none;
+}
+#wrap2 > a.back {
+    display: none;
+}
 
 /* HTML Marker */
 .cs_mapbridge .map_group .map_marker{position:absolute;width:20px;height:20px;z-index:5}
