@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>마커 그림자 표시하기</title>
+    <script src="../../docs/js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="../../docs/js/examples-base.js"></script>
+    <script type="text/javascript" src="../../docs/js/highlight.min.js"></script>
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=MK_1sBFRuO6XEvDi29iW&amp;submodules=panorama"></script>
+    <link rel="stylesheet" type="text/css" href="../../docs/css/examples-base.css" />
+    <script>
+        var HOME_PATH = '../..';
+    </script>
+</head>
+<body>
+
+<!-- @category Overlay/Marker -->
+
+<div id="wrap" class="section">
+    <h2>마커 그림자 표시하기</h2>
+    <p>마커의 그림자를 표시하는 예제입니다.</p>
+    <div id="map" style="width:100%;height:600px;"></div>
+    <code id="snippet" class="snippet"></code>
+</div>
+<script id="code">
+var HOME_PATH = window.HOME_PATH || '.';
+var position = new naver.maps.LatLng(37.3595704, 127.105399);
+
+var map = new naver.maps.Map('map', {
+    center: position,
+    zoom: 10
+});
+
+var markerOptions = {
+    position: position,
+    map: map,
+    icon: {
+        url: HOME_PATH +'/img/example/pin_default.png',
+        size: new naver.maps.Size(22, 35),
+        origin: new naver.maps.Point(0, 0),
+        anchor: new naver.maps.Point(11, 35)
+    },
+    shadow: {
+        url: HOME_PATH +'/img/example/shadow-pin_default.png',
+        size: new naver.maps.Size(40, 35),
+        origin: new naver.maps.Point(0, 0),
+        anchor: new naver.maps.Point(11, 35)
+    }
+};
+
+var marker = new naver.maps.Marker(markerOptions);
+</script>
+
+</body>
+</html>
