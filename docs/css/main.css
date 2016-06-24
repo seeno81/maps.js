@@ -1,9 +1,8 @@
 @charset "utf-8";
 /* NHN Incomms PSH 20160610 */
-
 /* Common */
 body,div,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textarea,a,button,select{margin:0;padding:0;font-weight:normal}
-body,input,textarea,select,button,table{font-family:'나눔바른고딕',NanumBarunGothic,'돋움',dotum,AppleGothic,sans-serif;font-size:12px}
+body,input,textarea,select,button,table{font-family:'나눔바른고딕',NanumBarunGothic,nanumgothic,NanumGothic,'나눔고딕','Malgun Gothic',Malgun Gothic,'맑은고딕','돋움',dotum,AppleGothic,sans-serif;font-size:12px}
 body{word-break:break-all;position:relative}
 img,fieldset{border:0}
 img{vertical-align:top}
@@ -79,6 +78,7 @@ textarea{resize:none}
 
 .section3 .inner_section3 .api_use_srvice{position:relative;width:1000px;height:425px;margin:0 auto;padding-top:120px}
 .section3 .inner_section3 .api_use_srvice li{position:absolute;bottom:0;z-index:0}
+.section3 .inner_section3 .api_use_srvice li a { display:block; }
 .section3 .inner_section3 .api_use_srvice li:hover{z-index:10 !important;border:3px solid #29ef37;border-bottom:0}
 .section3 .inner_section3 .api_use_srvice li.map{left:0;z-index:1}
 .section3 .inner_section3 .api_use_srvice li.map:hover{left:-3px}

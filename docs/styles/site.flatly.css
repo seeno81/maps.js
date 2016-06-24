@@ -6990,6 +6990,10 @@ a.list-group-item-danger.active:focus {
 .popover {
   color: #56607a;
 }
+body {
+  font-family: "나눔바른고딕", NanumBarunGothic, nanumgothic, "나눔고딕", NanumGothic, "Malgun Gothic", "돋움", dotum, "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+}
 #main {
   margin-top: 210px;
 }
@@ -7127,6 +7131,9 @@ img.branding-logo {
 }
 section img {
   max-width: 100% !important;
+}
+#wrap img {
+  max-width: none !important;
 }
 #toc {
   position: fixed;
