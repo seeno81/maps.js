@@ -6990,6 +6990,10 @@ a.list-group-item-danger.active:focus {
 .popover {
   color: #56607a;
 }
+body {
+  font-family: "나눔바른고딕", NanumBarunGothic, nanumgothic, "나눔고딕", NanumGothic, "Malgun Gothic", "돋움", dotum, "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+}
 #main {
   margin-top: 210px;
 }
@@ -7124,6 +7128,12 @@ img.branding-logo {
   display: inline-block;
   padding: 0px;
   margin: 0 5px 0 0;
+}
+section img {
+  max-width: 100% !important;
+}
+#wrap img {
+  max-width: none !important;
 }
 #toc {
   position: fixed;
@@ -7357,11 +7367,13 @@ code {
     color: #fff;
     font-weight: bold;
   }
-  .navbar-collapse {
-    max-height: none !important;
-  }
   .navbar-form {
     margin: 0;
+  }
+  #main td {
+    width: 25%;
+    word-break: break-word;
+    padding: 8px;
   }
 }
 @media (min-width: 768px) {
