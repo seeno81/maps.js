@@ -46,6 +46,7 @@
 
             resizeTimer = window.setTimeout(function() {
                 size.width = mapContainer.offsetWidth;
+                size.height = mapContainer.offsetHeight;
 
                 map.setSize(size.clone());
                 panorama.setSize(size.clone());
