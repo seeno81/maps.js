@@ -53,24 +53,34 @@ var map = new naver.maps.Map('map', {
 map.mapTypes.set('osm', openStreetMapType);
 
 var korea = new naver.maps.LatLngBounds(
-        new naver.maps.LatLng(31.9438084, 121.8687225),
-        new naver.maps.LatLng(43.6968564, 134.004109));
+        new naver.maps.LatLng(30.1391277, 115.0607471),
+        new naver.maps.LatLng(48.940448, 139.7803655));
 
-var listener = null;
-function listen() {
-    listener = naver.maps.Event.addListener(map, 'idle', function() {
-        var bounds = map.getBounds();
+var listener = null,
+    projectionChanged = false;
 
-        if (korea.hasBounds(bounds)) {
-            if (map.getMapTypeId() === "osm") {
-                map.setMapTypeId("normal");
-            }
-        } else {
-            if (map.getMapTypeId() !== "osm") {
-                map.setMapTypeId("osm");
-            }
+function checkBounds() {
+    if (projectionChanged) {
+        projectionChanged = false;
+
+        return;
+    }
+
+    var bounds = map.getBounds();
+
+    if (korea.hasBounds(bounds)) {
+        if (map.getMapTypeId() === "osm") {
+            map.setMapTypeId("normal");
         }
-    });
+    } else {
+        if (map.getMapTypeId() !== "osm") {
+            map.setMapTypeId("osm");
+        }
+    }
+}
+
+function listen() {
+    listener = naver.maps.Event.addListener(map, 'idle', checkBounds);
 }
 
 function unlisten() {
@@ -78,16 +88,22 @@ function unlisten() {
     listener = null;
 }
 
-naver.maps.Event.addListener(map, 'mapTypeId_changed', function(mapTypeId) {
-    var center = map.getCenter(),
-        curZoom = map.getZoom();
-
+naver.maps.Event.addListener(map, 'projection_changed', function(projection) {
     unlisten();
-    if (mapTypeId === 'osm') {
-        map.updateBy(center, curZoom + 5);
-    } else if (map.mapTypes.getPreviousTypeId() === 'osm') {
-        map.updateBy(center, curZoom - 5);
+
+    projectionChanged = true;
+
+    if (projection === naver.maps.EPSG3857) {
+        map.zoomBy(5);
+    } else if (projection === naver.maps.UTMK_NAVER) {
+        map.zoomBy(-5);
     }
+
+    listen();
+});
+
+naver.maps.Event.addListener(map, 'zooming', function(e) {
+    unlisten();
 
     naver.maps.Event.once(map, 'idle', function() {
         listen();
